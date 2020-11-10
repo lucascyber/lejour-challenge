@@ -1,0 +1,62 @@
+@import '../helpers/functions';
+
+/**
+ * ------- COLOR MIXIN ----------
+ *
+ * Esta mixin é para configuração da paleta de cores.
+ *
+ * --- Os valores pré configurados são de exemplo usando a paleta Material desing
+ */
+
+
+// Configuração da paleta de cores
+$palette: (
+    green: (
+    base :#008179,
+    medium :#00a499,
+    light :#1a9f68,
+    dark :#1a5150,
+  ),
+  grey: (
+    lightest: #ddd,
+    light : #ccc,
+    base :#787a7a,
+    dark :#4a4a4a,
+  ),
+);
+
+/**
+	* Função que vai gerar a paleta de cores
+	*
+	* USAGE:
+	*
+	* .foo{
+	*   background: color(indigo, 400);
+	* }
+	*
+*/
+
+@function palette($color, $fill) {
+  $color: map-deep-get($palette, $color, $fill);
+  @return $color;
+}
+
+// Fazendo setup das classes cores e do background e acordo com a paleta
+@each $color,
+$fill in $palette {
+  $lenght: length($fill);
+
+  @for $i from 1 through $lenght {
+    $fillkey: map-keys($fill);
+    $fillkey: nth($fillkey, $i);
+    $colors-set: nth(map-values($fill), $i);
+
+    .bg-color#{"" + $color}-#{$fillkey} {
+      background-color: $colors-set;
+    }
+
+    .color-#{"" + $color}-#{$fillkey} {
+      color: $colors-set;
+    }
+  }
+}

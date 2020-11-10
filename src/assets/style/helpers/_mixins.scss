@@ -1,0 +1,166 @@
+/**
+ * BREAKPOINT MIXIN 
+ * 
+ * - Esta mixin é para definir as media queries.
+ * 
+ * - Valores padrões:
+ *   - "phone"        : 400px 
+ *   - "phone-wide"   : 480px 
+ *   - "phablet"      : 560px 
+ *   - "tablet-small" : 640px 
+ *   - "tablet"       : 768px 
+ *   - "tablet-wide"  : 1024px 
+ *   - "desktop"      : 1248px 
+ *   - "desktop-wide" : 1440px
+ * 
+ * Exemplo:
+ * 
+ * .foo{
+ *    display:block;
+ *    @incude breakpoint('phone'){
+ *      background: #ff0;
+ *    }
+ *  }
+ * 
+ * - Você também pode passar por parâmetro o máximo ou mínimo:
+ * 
+ * .bar{
+ *   @include breakpoint('phone', max){
+ *      .menu{
+ *        display: block;
+ *      }     
+ *   }
+ * }
+ * 
+ * - Você também pode usar a classe customizada:
+ * <a href="#" class="menu-mobile hide-desktop"></a>
+ */
+
+$breakpoints: (
+	"phone-small"  : 320px,
+	"phone"        : 400px, 
+	"phone-wide"   : 480px, 
+	"phablet"      : 560px, 
+	"tablet-small" : 640px, 
+	"tablet"       : 768px, 
+	"tablet-wide"  : 1024px, 
+	"desktop"      : 1248px, 
+	"desktop-wide" : 1440px
+);
+
+@mixin breakpoint($width, $type: min) {
+	@if map_has_key($breakpoints, $width) {
+		$width: map-get($breakpoints, $width);
+		@if $type==max {
+			$width: $width - 1px;
+		}
+		@media only screen and (#{$type}-width: $width) {
+			@content;
+		}
+	} @else {
+			@error 'Erro: `#{$width}` não é um valor válido para $breakpoint.'
+					+  ' Leia a documentação no arquivo: helpers/_mixins. Para tirar suas dúvidas.';
+	}
+}
+
+// - Gerando a classe para esconder os elementos de acordo com o media querie
+@each $property, $value in $breakpoints{
+	@debug $property;
+
+	.hide-max-#{$property}{
+		@media only screen and (max-width: $value) {
+			display: none;
+		}
+	}
+
+	.hide-min-#{$property}, .hide-#{$property}{
+		@media only screen and (min-width: $value) {
+			display: none;
+		}
+	}
+}
+
+
+/**
+ * PSEUDO ELEMENT
+ * 
+ * Mixin especial para pseudo-elementos
+ */
+
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+	content: $content;
+	display: $display;
+	position: $pos;
+}
+
+/**
+ * - TRIANGULO MIXIN
+ * 
+ * - Esta mixin é para criar triangulos personalizados.
+ * 
+ * Usage:
+ * 
+ * .foo{
+ *   &:before{
+ *     @include triangle(#000, up, 10px, relative, 5px);
+ *   }
+ *  }
+ * 
+ */
+
+@mixin triangle($color, $direction, $size: 6px, $position: absolute, $round: false){
+	@include pseudo($pos: $position);
+	width: 0;
+	height: 0;
+	@if $round {
+			border-radius: 3px;
+	}
+	@if $direction == down {
+			border-left: $size solid transparent;
+			border-right: $size solid transparent;
+			border-top: $size solid $color;
+			margin-top: 0 - round( $size / 2.5 );
+	} @else if $direction == up {
+			border-left: $size solid transparent;
+			border-right: $size solid transparent;
+			border-bottom: $size solid $color;
+			margin-bottom: 0 - round( $size / 2.5 );
+	} @else if $direction == right {
+			border-top: $size solid transparent;
+			border-bottom: $size solid transparent;
+			border-left: $size solid $color;
+			margin-right: -$size;
+	} @else if  $direction == left {
+			border-top: $size solid transparent;
+			border-bottom: $size solid transparent;
+			border-right: $size solid $color;
+			margin-left: -$size;
+	} @else {
+		@error 'Erro: `#{$direction}` não é um valor válido para $direction.'
+				+  ' Leia a documentação no arquivo: helpers/_mixins. Para tirar suas dúvidas.';
+	}
+}
+
+/**
+ * INPUT PLACEHOLDER
+ * 
+ * - Mixin para input placeholder customizado
+ * 
+ * USAGE:
+ * 
+ * input{
+ *  color: #ff0;
+ *  @include input-placeholder{
+ *    color: #ff0;
+ *  }
+ * }
+ * 
+ */
+
+@mixin input-placeholder {
+	&.placeholder { @content; }
+	&:-moz-placeholder { @content; }
+	&::-moz-placeholder { @content; }
+	&:-ms-input-placeholder { @content; }
+	&::-webkit-input-placeholder { @content; }
+}

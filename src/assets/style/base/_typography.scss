@@ -1,0 +1,20 @@
+@import './colors';
+
+[class*='h-'] {
+  font-family: 'Merriweather', "Helvetica Neue", sans-serif;
+}
+
+// Desktop heading sizes
+$heading: (
+  1: 42px,
+  2: 28px,
+  3: 22px,
+  4: 18px,
+);
+
+// Create help classes to heading
+@each $heading, $size in $heading {
+  .h-#{$heading} {
+    font-size: $size;
+  }
+}
