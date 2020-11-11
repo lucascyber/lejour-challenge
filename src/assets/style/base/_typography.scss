@@ -1,8 +1,65 @@
 @import './colors';
+@import '../helpers/mixins';
 
-[class*='h-'] {
-  font-family: 'Merriweather', "Helvetica Neue", sans-serif;
+// Fonts weight
+[class*='--light'] {
+  font-weight: 300;
 }
+[class*='--normal'] {
+  font-weight: 400;
+}
+[class*='--bold'] {
+  font-weight: 700;
+}
+[class*='--black'] {
+  font-weight: 900;
+}
+
+// Fonts size body
+$body-size: (
+  lg: 24px,
+  md: 16px,
+  nm: 14px,
+  sm: 12px,
+);
+
+// Create help classes to body
+@each $key, $size in $body-size {
+  [class*='body__#{$key}'] {
+    font-family: 'Lato', "Helvetica Neue", sans-serif;
+    font-size: $size;
+  }
+}
+// Fonts size text
+$text-size: (
+  xxxl: 38px,
+  xxl: 32px,
+  xl: 28px,
+  lg: 24px,
+  md: 16px,
+  nm: 14px,
+  sm: 12px,
+);
+
+// Fonts typography
+$fonts: (
+  lato: 'Lato',
+  merriweather: 'Merriweather',
+);
+
+// Create help classes to text
+@each $font, $type in $fonts {
+  [class*='text-#{$font}'] {
+    font-family: $type, "Helvetica Neue", sans-serif !important;
+  }
+
+  // Create healp size classes to text
+  @each $key, $size in $text-size {
+    [class*='text-#{$font}__#{$key}'] {
+      font-size: $size;
+    }
+  }
+};
 
 // Desktop heading sizes
 $heading: (
@@ -12,9 +69,30 @@ $heading: (
   4: 18px,
 );
 
+// Mobile heading sizes
+$heading-mobile: (
+  1: 22px,
+  2: 18px,
+  3: 16px,
+  4: 14px,
+);
+
 // Create help classes to heading
 @each $heading, $size in $heading {
-  .h-#{$heading} {
+  .h#{$heading} {
+    font-family: 'Merriweather', "Helvetica Neue", sans-serif;
     font-size: $size;
+  }
+
+  // set mobile sizes
+  @each $mobkey, $mobsize in $heading-mobile {
+    @if $mobkey == $heading {
+      @include breakpoint('phone-wide', max) {
+        .h#{$heading} {
+          font-family: 'Merriweather', "Helvetica Neue", sans-serif;
+          font-size: $mobsize;
+        }
+      }
+    }
   }
 }
