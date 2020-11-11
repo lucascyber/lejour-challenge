@@ -5,23 +5,31 @@
  *
  * Esta mixin é para configuração da paleta de cores.
  *
- * --- Os valores pré configurados são de exemplo usando a paleta Material desing
  */
 
 
 // Configuração da paleta de cores
 $palette: (
-    green: (
-    base :#008179,
-    medium :#00a499,
-    light :#1a9f68,
-    dark :#1a5150,
+  secondary: (
+    yellow: #FFB854,
+    orange: #EA8079,
+    pink: #DB5D79,
+    sky-blue: #84B8E2,
+    dark-w-green: #68BFB7,
+    water-green: #86D0CB,
   ),
   grey: (
-    lightest: #ddd,
-    light : #ccc,
-    base :#787a7a,
-    dark :#4a4a4a,
+    lightest: #F2F2F2,
+    light: #E0E0E0,
+    base:#9B9A9A,
+    dark:#585858,
+  ),
+  primary: (
+    guava: #E2645A,
+  ),
+  gradients: (
+    green-blue: linear-gradient(263.69deg, #84B8E2 -5.62%, #86D0CB 77.09%),
+    guava-pink: linear-gradient(269.41deg, #DB5D79 0.41%, #E2645A 99.41%),
   ),
 );
 
@@ -36,7 +44,7 @@ $palette: (
 	*
 */
 
-@function palette($color, $fill) {
+@function colors($color, $fill) {
   $color: map-deep-get($palette, $color, $fill);
   @return $color;
 }
@@ -51,12 +59,32 @@ $fill in $palette {
     $fillkey: nth($fillkey, $i);
     $colors-set: nth(map-values($fill), $i);
 
-    .bg-color#{"" + $color}-#{$fillkey} {
+    .bg-#{"" + $color}-#{"" + $fillkey} {
       background-color: $colors-set;
     }
 
-    .color-#{"" + $color}-#{$fillkey} {
+    .color-#{"" + $color}-#{"" + $fillkey} {
       color: $colors-set;
     }
   }
 }
+
+/**
+ * ------- SHADOW MIXIN ----------
+ *
+ * Esta mixin é para configuração das sombras.
+ *
+ */
+
+ $shadows: (
+   default: (0px 3px 10px rgba(88, 88, 88, 0.1), 0px 16px 31px rgba(88, 88, 88, 0.1)),
+   green: (0px 4px 12px rgba(134, 208, 203, 0.05), 0px 18px 31px rgba(134, 208, 203, 0.38)),
+   guava: (0px 4px 12px rgba(226, 100, 90, 0.05), 0px 18px 31px rgba(226, 100, 90, 0.38)),
+   hover: 0px 4px 4px rgba(0, 0, 0, 0.2),
+ );
+
+ @each $key, $value in $shadows {
+   .shadow-#{$key} {
+     box-shadow: $value;
+   }
+ }
