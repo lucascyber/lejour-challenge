@@ -1,0 +1,44 @@
+@import '../../../../assets/style/base/colors';
+@import '../../../../assets/style/base/typography';
+
+button {
+  width: 100%;
+  height: 45px;
+  text-align: center;
+  outline: none;
+  text-transform: uppercase;
+  border-radius: 48px;
+}
+
+[class*='button-default'] {
+  background-color: colors(secondary, water-green);
+  border: none;
+  box-shadow: shadows(green);
+  color: #fff;
+  cursor: pointer;
+  font-weight: font-weight(bold);
+}
+
+[class*='default--disabled'] {
+  background-color: colors(grey, light);
+  box-shadow: none;
+  cursor: default;
+}
+
+[class*='button-outline'] {
+  font-weight: font-weight(regular);
+  border-width: 1px;
+  border-style: solid;
+  background: #fff;
+  cursor: pointer;
+}
+
+[class*='outline__green'] {
+  border-color: colors(secondary, water-green);
+  color: colors(secondary, water-green);
+}
+
+[class*='outline__grey'] {
+  border-color: colors(grey, base);
+  color: colors(grey, base);
+}

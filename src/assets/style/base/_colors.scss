@@ -83,8 +83,13 @@ $fill in $palette {
    hover: 0px 4px 4px rgba(0, 0, 0, 0.2),
  );
 
+ @function shadows($shadow) {
+   $shadow: map-get($shadows , $shadow);
+   @return $shadow,
+ }
+
  @each $key, $value in $shadows {
-   .shadow-#{$key} {
+   .shadow-#{"" + $key} {
      box-shadow: $value;
    }
  }

@@ -1,7 +1,8 @@
-<h1 class="h1">Olá mundo</h1>
-
-<p class="body__nm--bold color-primary-guava">Teste do lado</p>
-
-<div class="bg-primary-guava shadow-guava" style="width: 200px; height: 200px;">
-
-</div>
+<app-button
+  value="isso é um value"
+  (onClick)="print($event)"
+  type={{buttonOptions}}
+  buttonStyle={{buttonStyle}}
+  isDisabled={{true}}
+  text="Olá mundo"
+></app-button>
