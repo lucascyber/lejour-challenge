@@ -1,21 +1,12 @@
 @import '~@angular/material/theming';
+@import './colors';
+
 @include mat-core();
 
 $my-custom-primary-color: (50 : #008179,
-  100 : #00a499,
-  200 : #1a9f68,
-  300 : #1a5150,
-  400 : #8274eb,
-  500 : #6c5ce7,
-  600 : #6454e4,
-  700 : #594ae0,
-  800 : #4f41dd,
-  900 : #3d30d7,
-  A100 : #ffffff,
-  A200 : #e9e7ff,
-  A400 : #b9b4ff,
-  A700 : #a29bff,
-  contrast: (50 : #000000,
+  guava : #E2645A,
+  contrast: (
+    50 : #000000,
     100 : #000000,
     200 : #000000,
     300 : #000000,
@@ -31,21 +22,15 @@ $my-custom-primary-color: (50 : #008179,
     A700 : #000000,
   ));
 
-$my-custom-accent-color: (50 : #fae6e6,
-  100 : #f3c1c1,
-  200 : #eb9898,
-  300 : #e26e6f,
-  400 : #dc4f50,
-  500 : #000,
-  600 : #d12b2c,
-  700 : #cc2425,
-  800 : #c61e1f,
-  900 : #bc1313,
-  A100 : #ffecec,
-  A200 : #ffb9b9,
-  A400 : #ff8686,
-  A700 : #ff6d6d,
-  contrast: (50 : #000000,
+$my-custom-accent-color: (
+  yellow : #FFB854,
+  orange : #EA8079,
+  pink : #DB5D79,
+  sky-blue : #84B8E2,
+  dark-w-green : #68BFB7,
+  water-green : #86D0CB,
+  contrast: (
+    50 : #000000,
     100 : #000000,
     200 : #000000,
     300 : #000000,
@@ -61,25 +46,57 @@ $my-custom-accent-color: (50 : #fae6e6,
     A700 : #000000,
   ));
 
-$my-app-primary: mat-palette($my-custom-primary-color, 100);
-$my-app-accent: mat-palette($my-custom-accent-color, 500, 900, A100);
+
+$my-app-primary: mat-palette($my-custom-primary-color, guava);
+$my-app-accent: mat-palette($my-custom-accent-color, dark-w-green);
 $my-app-warn: mat-palette($mat-deep-orange);
 
 $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
 
 @include angular-material-theme($my-app-theme);
 
-// Cutom elements
+$custom-typography: mat-typography-config(
+    $font-family:   'Lato',
+    $button:        mat-typography-level(14px, 14px, 400),
+    $input:         mat-typography-level(inherit, 1.125, 400)
+);
 
+@include mat-base-typography($custom-typography);
+
+// Override typography for a specific Angular Material components.
+@include mat-checkbox-typography($custom-typography);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($custom-typography);
+
+@include mat-core($custom-typography);
+
+/**
+* Custom Elements
+*/
+
+// Customize buttons
+.button.mat-button,
 .mat-raised-button,
 .mat-flat-button {
+  border-radius: 48px !important;
   color: #fff !important;
+  letter-spacing: .7px;
 }
 
-.mat-form-field-label {
-  padding-bottom: 0.5rem
+.mat-stroked-button {
+  border-radius: 48px !important;
+  letter-spacing: .7px;
 }
 
-.mat-form-field-subscript-wrapper {
-  padding-bottom: 0.5rem;
+.mat-raised-button:not([class*=mat-elevation-z]) {
+  box-shadow: shadows(button-green);
+}
+
+.mat-stroked-button:not([disabled]) {
+  border-color: colors(secondary, dark-w-green);
+}
+
+.mat-raised-button:not([disabled]):active:not([class*=mat-elevation-z]) {
+  box-shadow: shadows(button-green-hover);
 }
