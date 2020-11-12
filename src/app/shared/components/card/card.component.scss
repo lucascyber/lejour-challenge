@@ -1,0 +1,16 @@
+@import '../../../../assets/style/base/colors';
+
+.app-card {
+  box-shadow: shadows(default);
+
+}
+
+.radius {
+  &--small {
+    border-radius: 20px;
+  }
+
+  &--big {
+    border-radius: 30px;
+  }
+}
