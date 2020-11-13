@@ -100,3 +100,12 @@ $custom-typography: mat-typography-config(
 .mat-raised-button:not([disabled]):active:not([class*=mat-elevation-z]) {
   box-shadow: shadows(button-green-hover);
 }
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: colors(grey, dark);
+}
+
+.mat-form-field.mat-focused
+.mat-form-field-label {
+  color: colors(grey, dark);
+}
