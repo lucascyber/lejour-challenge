@@ -1,7 +1,17 @@
+@import '../../../../assets/style/base/colors';
+@import '../../../../assets/style/base/typography';
+
 .side-menu {
   width: 275px;
+
+  &__header {
+    padding: 36px 0;
+    display: flex;
+    justify-content: center;
+  }
+
   &__wrapper {
-    padding: 22px 31px;
+    min-height: 500px;
   }
 }
 
@@ -13,8 +23,27 @@
 
 .menu-list-item {
   padding: 22px 31px;
+  cursor: pointer;
+  max-height: 78px;
+  display: flex;
+  align-items: center;
+
+  &:hover, .active {
+    * {
+      color: colors(secondary, dark-w-green);
+      font-weight: font-weight(bold);
+    }
+  }
 
   &__icon {
+    width: 25px;
+    font-size: fontSize(xl);
+    margin-right: 25px;
+  }
 
+  &__text {
+    font-family: fonts(lato);
+    font-size: 18px;
+    color: colors(grey, dark)
   }
 }
