@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CardRadiusOptions } from './shared/components/card/card.enum';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lejour-dashboard';
+
+  cardOption: CardRadiusOptions = CardRadiusOptions.Big;
 }

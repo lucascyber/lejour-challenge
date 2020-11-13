@@ -15,6 +15,17 @@
   font-weight: 900;
 }
 
+$fonts-weight: (
+  light: 300,
+  regular: 400,
+  bold: 700,
+  black: 900,
+);
+
+@function font-weight($fonts) {
+  @return map-get($fonts-weight, $fonts);
+}
+
 // Fonts size body
 $body-size: (
   lg: 24px,
@@ -41,11 +52,19 @@ $text-size: (
   sm: 12px,
 );
 
+@function fontSize($size) {
+  @return map-get($text-size, $size);
+}
+
 // Fonts typography
 $fonts: (
   lato: 'Lato',
   merriweather: 'Merriweather',
 );
+
+@function fonts($font) {
+  @return map-get($fonts, $font);
+}
 
 // Create help classes to text
 @each $font, $type in $fonts {

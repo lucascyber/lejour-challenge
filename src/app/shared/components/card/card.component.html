@@ -1,0 +1,9 @@
+<div
+  class="app-card"
+  [ngClass]="{
+    'radius--big': radius === cardRadius.bigRadius,
+    'radius--small': radius === cardRadius.smallRadius
+  }"
+>
+  <ng-content></ng-content>
+</div>
