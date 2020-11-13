@@ -1,4 +1,5 @@
 export enum CardRadiusOptions {
   Big,
-  Small
+  Small,
+  Modal
 }

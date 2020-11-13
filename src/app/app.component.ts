@@ -9,5 +9,5 @@ import { CardRadiusOptions } from './shared/components/card/card.enum';
 export class AppComponent {
   title = 'lejour-dashboard';
 
-  cardOption: CardRadiusOptions = CardRadiusOptions.Small;
+  cardOption: CardRadiusOptions = CardRadiusOptions.Big;
 }
