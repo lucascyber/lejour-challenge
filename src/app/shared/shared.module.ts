@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material-module/material-module.module';
 import { CardComponent } from './components/card/card.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { UserMenuComponent } from './components/user-menu/user-menu.component';
 
 @NgModule({
   declarations: [
     CardComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    UserMenuComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
   exports: [
     MaterialModule,
     CardComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    UserMenuComponent
   ]
 })
 export class SharedModule { }

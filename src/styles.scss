@@ -4,13 +4,14 @@
 @import './assets/style/base/typography';
 @import './assets/icons/css/fontello.css';
 
-html, body { 
+html, body {
   height: 100%;
- }
-body { 
+}
+
+body {
   margin: 0;
-   font-family: 'Lato', "Helvetica Neue", sans-serif;
-  }
+  font-family: 'Lato', "Helvetica Neue", sans-serif;
+}
 
 /* Responsive Styles */
 :host {
@@ -25,6 +26,7 @@ body {
 * {
   box-sizing: border-box;
 }
+
 .container {
   width: 100%;
   padding-right: 15px;
@@ -101,64 +103,96 @@ body {
 }
 
 .col-8 {
-  width: 50%;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
 }
 
 .col-9 {
-  width: 56.25%;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 56.25%;
+  flex: 0 0 56.25%;
+  max-width: 56.25%;
 }
 
 .col-10 {
-  width: 62.5%;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 62.5%;
+  flex: 0 0 62.5%;
+  max-width: 62.5%;
 }
 
 .col-11 {
-  width: 68.75%;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 68.75%;
+  flex: 0 0 68.75%;
+  max-width: 68.75%;
 }
 
 .col-12 {
-  width: 75%;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 75%;
+  flex: 0 0 75%;
+  max-width: 75%;
 }
 
 .col-13 {
-  width: 81.25%;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 81.25%;
+  flex: 0 0 81.25%;
+  max-width: 81.25%;
 }
 
 .col-14 {
-  width: 87.5%;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 87.5%;
+  flex: 0 0 87.5%;
+  max-width: 87.5%;
 }
 
 .col-15 {
-  width: 93.75%;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 93.75%;
+  flex: 0 0 93.75%;
+  max-width: 93.75%;
 }
 
 .col-16 {
-  width: 100%;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
 }
 
-
-
-/*html {
-  font-family: "Lucida Sans", sans-serif;
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
 }
 
-
-
-.menu ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+  }
 }
 
-.menu li {
-  padding: 8px;
-  margin-bottom: 7px;
-  background-color: #33b5e5;
-  color: #ffffff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
 }
 
-.menu li:hover {
-  background-color: #0099cc;
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
 }
-*/
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}

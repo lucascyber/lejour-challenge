@@ -1,1 +1,25 @@
-<router-outlet></router-outlet>
+
+<div class="row">
+  <div class="container-side">
+    <app-side-menu></app-side-menu>
+  </div>
+
+  <div class="container-root">
+    <div class="row">
+      <div class="col-16">
+        <app-user-menu></app-user-menu>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-16">
+        rodape
+      </div>
+    </div>
+  </div>
+</footer>
