@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  endPoints: {
+    user: 'https://sheet2api.com/v1/ByR2h1huRjyQ/fiap/user',
+    invoice: 'https://sheet2api.com/v1/ByR2h1huRjyQ/fiap/invoice',
+    wending: 'https://sheet2api.com/v1/ByR2h1huRjyQ/fiap/wedding',
+    appointment: 'https://sheet2api.com/v1/ByR2h1huRjyQ/fiap/appointment',
+    favorites: 'https://sheet2api.com/v1/ByR2h1huRjyQ/fiap/wedding_favorites'
+  }
 };
 
 /*
