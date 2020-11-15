@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getUsers().subscribe((users) => {
+    this.userService.getUsers({id: '1', limit: '10'}).subscribe((users) => {
       console.log(users);
     });
   }

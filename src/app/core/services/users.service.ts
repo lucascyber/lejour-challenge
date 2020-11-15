@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -12,15 +12,25 @@ export class UsersService {
   constructor(private _http?: HttpClient) { }
 
   getUsers(
-    limit?: number,
-    id?: string,
-    date?: Date
+    {
+      limit,
+      id,
+      date,
+    }:
+    {
+      limit?: string,
+      id?: string,
+      date?: string
+    }
   ): Observable<User[]> {
-    const params = new HttpParams();
-    if (limit) { params.append('limit', limit.toString()); }
-    if (id) { params.append('ÍD', id); }
-    if (date) { params.append('CREATED_AT', date.toDateString()); }
+    const opt: {[k: string]: any} = {};
 
-    return this._http.get<User[]>(environment.endPoints.user, {params});
+    Object.assign(opt,
+      limit ? { limit } : null,
+      id ? { id } : null,
+      date ? { created_at: date } : null
+    );
+
+    return this._http.get<User[]>(environment.endPoints.user, {params: opt});
   }
 }
