@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CardRadiusOptions } from './shared/components/card/card.enum';
-import { UsersService } from './core/services/users.service';
+import { WenddingService } from './core/services/wendding.service';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +9,13 @@ import { UsersService } from './core/services/users.service';
 export class AppComponent implements OnInit {
   title = 'lejour-dashboard';
 
-  constructor(private userService: UsersService) {
+  constructor(private wenddingService: WenddingService) {
 
   }
 
   ngOnInit() {
-    this.userService.getUsers({id: '1', limit: '10'}).subscribe((users) => {
-      console.log(users);
+    this.wenddingService.getWenddings({id: '13', limit: '10'}).subscribe((wendding) => {
+      console.log(wendding[0].OWNER_ID);
     });
   }
 }
