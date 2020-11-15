@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class WenddingService {
 
-  constructor(private _http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getWenddings(
     {
@@ -43,6 +43,6 @@ export class WenddingService {
       style ? { style } : null,
     );
 
-    return this._http.get<Wendding[]>(environment.endPoints.wending, {params: opt});
+    return this.http.get<Wendding[]>(environment.endPoints.wending, {params: opt});
   }
 }
