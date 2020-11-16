@@ -6,8 +6,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-menu.component.scss']
 })
 export class SideMenuComponent implements OnInit {
+ public itemMenu: any[] = [];
 
-  constructor() { }
+  constructor() {
+    this.itemMenu = [
+      {
+        nome: "Agendamentos",
+        icone: "icon-calendar",
+        link:"/agendamento"
+      },
+      {
+        nome: "Clientes",
+        icone: "icon-clients",
+        link: "/cliente"
+      },
+      {
+        nome: "Casamentos",
+        icone: "icon-wending-1",
+        link: "/casamento"
+      },
+      {
+        nome: "Vendas",
+        icone: "icon-comercial",
+        link: "/venda"
+      }
+    ];
+
+  }
 
   ngOnInit() {
   }

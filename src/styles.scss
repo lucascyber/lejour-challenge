@@ -196,3 +196,24 @@ body {
     max-width: 1140px;
   }
 }
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #dfdfdf;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #a7a7a7;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #868686;
+}

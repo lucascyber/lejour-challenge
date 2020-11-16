@@ -7,35 +7,26 @@
     <div class="side-menu__wrapper">
       <ul class="menu-list">
         <li class="menu-list-item">
-          <span class="menu-list-item__icon">
-            <i class="icon-home-1"></i>
-          </span>
-          <span class="menu-list-item__text">Início</span>
+          <a href="/">
+
+            <span class="menu-list-item__icon">
+              <i class="icon-home-1"></i>
+            </span>
+            <span class="menu-list-item__text">Início</span>
+          </a>
         </li>
         <mat-divider></mat-divider>
-        <li class="menu-list-item">
-          <span class="menu-list-item__icon">
-            <i class="icon-calendar"></i>
-          </span>
-          <span class="menu-list-item__text">Agendamentos</span>
-        </li>
-        <li class="menu-list-item">
-          <span class="menu-list-item__icon">
-            <i class="icon-clients"></i>
-          </span>
-          <span class="menu-list-item__text">Clientes</span>
-        </li>
-        <li class="menu-list-item">
-          <span class="menu-list-item__icon">
-            <i class="icon-wending-1"></i>
-          </span>
-          <span class="menu-list-item__text">Casamentos</span>
-        </li>
-        <li class="menu-list-item">
-          <span class="menu-list-item__icon">
-            <i class="icon-comercial"></i>
-          </span>
-          <span class="menu-list-item__text">Vendas</span>
+      </ul>
+      <ul class="menu-list items">
+        <li class="menu-list-item" *ngFor="let item of itemMenu;">
+          <a href="{{link}}">
+            <span class="menu-list-item__icon">
+              <i class={{item.icone}}></i>
+            </span>
+            <span class="menu-list-item__text">
+              {{item.nome}}
+            </span>
+          </a>
         </li>
       </ul>
     </div>
