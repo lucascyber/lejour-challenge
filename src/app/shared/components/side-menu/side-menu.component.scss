@@ -2,7 +2,6 @@
 @import '../../../../assets/style/base/typography';
 
 .side-menu {
-  width: 275px;
 
   &__header {
     padding: 36px 0;
@@ -12,6 +11,11 @@
 
   &__wrapper {
     min-height: 500px;
+    height: 40.5vmax;
+  }
+
+  a {
+    text-decoration: none;
   }
 }
 
@@ -19,10 +23,15 @@
   list-style: none;
   padding: 0;
   margin: 0;
+
+  &.items {
+    height: 88%;
+    overflow-y: auto;
+  }
 }
 
 .menu-list-item {
-  padding: 22px 31px;
+  padding: 23px 28px 17px 48px;
   cursor: pointer;
   max-height: 78px;
   display: flex;
@@ -34,6 +43,8 @@
       font-weight: font-weight(bold);
     }
   }
+
+
 
   &__icon {
     width: 25px;

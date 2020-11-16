@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppointmentService } from './core/services/appointment.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
