@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WenddingService } from './core/services/wendding.service';
+import { InvoiceService } from './core/services/invoice.service';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +9,14 @@ import { WenddingService } from './core/services/wendding.service';
 export class AppComponent implements OnInit {
   title = 'lejour-dashboard';
 
-  constructor(private wenddingService: WenddingService) {
+  constructor(private invoiceService: InvoiceService) {
 
   }
 
   ngOnInit() {
-    this.wenddingService.getWenddings({id: '13', limit: '10'}).subscribe((wendding) => {
-      console.log(wendding[0].OWNER_ID);
+    this.invoiceService.getInvoices({}).subscribe((invoice) => {
+      const cat = invoice.map((x) => x.VENDOR_CATEGORY);
+      console.log(cat.filter((x, i) => cat.indexOf(x) === i));
     });
   }
 }

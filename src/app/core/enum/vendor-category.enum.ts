@@ -1,0 +1,17 @@
+export enum VendorCategory {
+  Espaco = 'espaco',
+  Mobiliario = 'mobiliario',
+  Buffet = 'buffet',
+  DecoracaoCenografia = 'decoracao-cenografia',
+  ServicoDeBarBartender = 'servico-de-bar-bartender',
+  Banda = 'banda',
+  AssessoriaDeCasamento = 'assessoria-de-casamento',
+  Dj = 'dj',
+  SomIluminacao = 'som-iluminacao',
+  BrindeLembrancinhas = 'brinde-lembrancinhas',
+  FotoEFilmagem = 'foto-e-filmagem',
+  CoralOrquestra = 'coral-orquestra',
+  BolosDoces = 'bolos-doces',
+  AluguelDeCarro = 'aluguel-de-carro',
+  ListaDePresentes = 'lista-de-presentes',
+}
