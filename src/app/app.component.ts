@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InvoiceService } from './core/services/invoice.service';
+import { AppointmentService } from './core/services/appointment.service';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +9,13 @@ import { InvoiceService } from './core/services/invoice.service';
 export class AppComponent implements OnInit {
   title = 'lejour-dashboard';
 
-  constructor(private invoiceService: InvoiceService) {
+  constructor(private appointmentsService: AppointmentService) {
 
   }
 
   ngOnInit() {
-    this.invoiceService.getInvoices({}).subscribe((invoice) => {
-      const cat = invoice.map((x) => x.VENDOR_CATEGORY);
+    this.appointmentsService.getAppointments({}).subscribe((invoice) => {
+      const cat = invoice.map((x) => x.STATUS);
       console.log(cat.filter((x, i) => cat.indexOf(x) === i));
     });
   }

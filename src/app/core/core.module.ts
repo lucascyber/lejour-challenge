@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UsersService } from './services/users.service';
 import { HttpClientModule } from '@angular/common/http';
 import { WenddingService } from './services/wendding.service';
+import { AppointmentService } from './services/appointment.service';
 
 
 
@@ -16,7 +17,8 @@ import { WenddingService } from './services/wendding.service';
   ],
   providers: [
     UsersService,
-    WenddingService
+    WenddingService,
+    AppointmentService
   ]
 })
 export class CoreModule { }
