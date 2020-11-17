@@ -4,6 +4,7 @@ import { MaterialModule } from './material-module/material-module.module';
 import { CardComponent } from './components/card/card.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { UserMenuComponent } from './components/user-menu/user-menu.component';
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule
   ],
   exports: [
     MaterialModule,

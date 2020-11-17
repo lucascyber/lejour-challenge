@@ -11,24 +11,24 @@ export class SideMenuComponent implements OnInit {
   constructor() {
     this.itemMenu = [
       {
-        nome: "Agendamentos",
-        icone: "icon-calendar",
-        link:"/agendamento"
+        nome: 'Agendamentos',
+        icone: 'icon-calendar',
+        link: 'dashboard/agendamentos'
       },
       {
-        nome: "Clientes",
-        icone: "icon-clients",
-        link: "/cliente"
+        nome: 'Clientes',
+        icone: 'icon-clients',
+        link: 'dashboard/clientes'
       },
       {
-        nome: "Casamentos",
-        icone: "icon-wending-1",
-        link: "/casamento"
+        nome: 'Casamentos',
+        icone: 'icon-wending-1',
+        link: 'dashboard/casamentos'
       },
       {
-        nome: "Vendas",
-        icone: "icon-comercial",
-        link: "/venda"
+        nome: 'Vendas',
+        icone: 'icon-comercial',
+        link: 'dashboard/vendas'
       }
     ];
 

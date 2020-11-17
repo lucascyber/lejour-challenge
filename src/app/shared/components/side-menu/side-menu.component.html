@@ -6,27 +6,22 @@
 
     <div class="side-menu__wrapper">
       <ul class="menu-list">
-        <li class="menu-list-item">
-          <a href="/">
-
-            <span class="menu-list-item__icon">
-              <i class="icon-home-1"></i>
-            </span>
-            <span class="menu-list-item__text">Início</span>
-          </a>
+        <li class="menu-list-item" routerLinkActive="active" routerLink="dashboard/home">
+          <span class="menu-list-item__icon">
+            <i class="icon-home-1"></i>
+          </span>
+          <span class="menu-list-item__text">Início</span>
         </li>
         <mat-divider></mat-divider>
       </ul>
       <ul class="menu-list items">
-        <li class="menu-list-item" *ngFor="let item of itemMenu;">
-          <a href="{{link}}">
-            <span class="menu-list-item__icon">
-              <i class={{item.icone}}></i>
-            </span>
-            <span class="menu-list-item__text">
-              {{item.nome}}
-            </span>
-          </a>
+        <li class="menu-list-item" routerLinkActive="active" *ngFor="let item of itemMenu;" routerLink={{item.link}}>
+          <span class="menu-list-item__icon">
+            <i class={{item.icone}}></i>
+          </span>
+          <span class="menu-list-item__text">
+            {{item.nome}}
+          </span>
         </li>
       </ul>
     </div>

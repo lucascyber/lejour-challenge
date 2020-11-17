@@ -2,6 +2,7 @@
 @import '../../../../assets/style/base/typography';
 
 .side-menu {
+  width: 275px;
 
   &__header {
     padding: 36px 0;
@@ -11,7 +12,6 @@
 
   &__wrapper {
     min-height: 500px;
-    height: 40.5vmax;
   }
 
   a {
@@ -31,11 +31,12 @@
 }
 
 .menu-list-item {
-  padding: 23px 28px 17px 48px;
+  padding: 22px 31px;
   cursor: pointer;
   max-height: 78px;
   display: flex;
   align-items: center;
+  outline: none;
 
   &:hover, .active {
     * {
@@ -43,8 +44,6 @@
       font-weight: font-weight(bold);
     }
   }
-
-
 
   &__icon {
     width: 25px;
@@ -56,5 +55,12 @@
     font-family: fonts(lato);
     font-size: 18px;
     color: colors(grey, dark)
+  }
+}
+
+.active {
+  * {
+    color: colors(secondary, dark-w-green);
+    font-weight: font-weight(bold);
   }
 }

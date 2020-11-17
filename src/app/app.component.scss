@@ -1,84 +1,15 @@
-.container-side {
-  display: none;
-  height: 92.2vh;
-}
-
-.container-root {
+.main-root {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  height: 100vh;
+  background: #fff;
 }
 
-
-.footer {
-  height: 7vh;
-  background-color: #F44336;
-  color: #fff;
-  font-weight: 600;
-  text-align: center;
+.content-wapper {
+  padding: 1rem 2em 0 2em;
+  display: flex;
 }
 
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  .container-side {
-    width: 22% !important;
-    display: block;
-  }
-
-  .container-root {
-    width: 78%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  .container-side {
-    width: 22% !important;
-    display: block;
-  }
-
-  .container-root {
-    width: 78%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) and (max-width: 2000px) {
-  .container-side {
-    width: 19%;
-    display: block;
-  }
-
-  .container-root {
-    width: 81%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-
-@media (min-width: 2001px) {
-  .container-side {
-    width: 13%;
-    display: block;
-  }
-
-  .container-root {
-    width: 87%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-  }
+.content {
+  width: 100%;
+  padding: 0 16px;
 }
