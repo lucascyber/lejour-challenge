@@ -1,3 +1,7 @@
+@import '../../../../assets/style/helpers/mixins';
+@import '../../../../assets/style/base/colors';
+@import '../../../../assets/style/base/typography';
+
 h4 {
   margin: 0;
 }
@@ -29,4 +33,12 @@ h4 {
 
 .sumary-footer-card {
   line-height: 0;
+}
+
+.charts-sumary {
+  margin-top: 4rem;
+}
+
+.chart-wrapper {
+
 }

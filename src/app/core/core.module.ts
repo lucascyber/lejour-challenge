@@ -6,6 +6,7 @@ import { WenddingService } from './services/wendding.service';
 import { AppointmentService } from './services/appointment.service';
 import { WenddingFavoriteService } from './services/wendding-favorite.service';
 import { InvoiceService } from './services/invoice.service';
+import { ChartsService } from './services/charts.service';
 
 
 
@@ -22,7 +23,8 @@ import { InvoiceService } from './services/invoice.service';
     WenddingService,
     AppointmentService,
     InvoiceService,
-    WenddingFavoriteService
+    WenddingFavoriteService,
+    ChartsService
   ]
 })
 export class CoreModule { }
