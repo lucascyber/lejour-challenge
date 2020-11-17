@@ -1,1 +1,66 @@
-<p>home works!</p>
+<div class="col-sm-12">
+  <h2 class="h2 color-grey-dark">Resumo</h2>
+</div>
+
+<div class="wrapper">
+  <div class="col-sm-12 col-md-4">
+    <app-card [radius]=cardRadius.small>
+      <div class="card-wrapper__medium sumary-body-card">
+        <div class="box-card-icon bg-primary-guava">
+          <i class="icon-comercial"></i>
+        </div>
+        <div class="card-description">
+          <h4 class="text-merriweather__md--bold color-grey-base">Vendas total</h4>
+          <span class="text-lato__lg--bold color-primary-guava">
+            {{sumaryData?.totalSales | currency: 'BRL' }}
+          </span>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="card-wrapper__medium sumary-footer-card">
+        <span class="text-lato__sm--bold color-grey-base">Total bruto do período</span>
+      </div>
+    </app-card>
+  </div>
+
+  <div class="col-sm-12 col-md-4">
+    <app-card [radius]=cardRadius.small>
+      <div class="card-wrapper__medium sumary-body-card">
+        <div class="box-card-icon bg-secondary-sky-blue">
+          <i class="icon-calendar"></i>
+        </div>
+        <div class="card-description">
+          <h4 class="text-merriweather__md--bold color-grey-base">Total de agendamentos</h4>
+          <span class="text-lato__lg--bold color-secondary-sky-blue">
+            {{sumaryData?.totalAppointments}}
+          </span>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="card-wrapper__medium sumary-footer-card">
+        <span class="text-lato__sm--bold color-grey-base">Total visitados e confirmados</span>
+      </div>
+    </app-card>
+  </div>
+
+  <div class="col-sm-12 col-md-4">
+    <app-card [radius]=cardRadius.small>
+      <div class="card-wrapper__medium sumary-body-card">
+        <div class="box-card-icon bg-secondary-dark-w-green">
+          <i class="icon-clients"></i>
+        </div>
+        <div class="card-description">
+          <h4 class="text-merriweather__md--bold color-grey-base">Total de clientes</h4>
+          <span class="text-lato__lg--bold color-secondary-dark-w-green">
+            {{sumaryData?.totalClients}}
+          </span>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="card-wrapper__medium sumary-footer-card">
+        <span class="text-lato__sm--bold color-grey-base">Total do período</span>
+      </div>
+    </app-card>
+  </div>
+
+</div>

@@ -13,3 +13,19 @@ body {
   margin: 0;
   font-family: 'Lato', "Helvetica Neue", sans-serif;
 }
+
+.wrapper {
+  width: 100%;
+}
+
+.card-wrapper {
+  &__small {
+    padding: 8px;
+  }
+  &__medium {
+    padding: 16px;
+  }
+  &__large {
+    padding: 24px;
+  }
+}
