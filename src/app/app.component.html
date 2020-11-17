@@ -1,25 +1,17 @@
+<mat-drawer-container class="main-root" autosize>
+  <mat-drawer #drawer class="menu-mobile" mode="side">
+    <p>This is menu mobile</p>
+  </mat-drawer>
 
-<div class="row">
-  <div class="container-side">
-    <app-side-menu></app-side-menu>
-  </div>
-
-  <div class="container-root">
-    <div class="row">
-      <div class="col-16">
-        <app-user-menu></app-user-menu>
-      </div>
+  <div class="content-wapper">
+    <div class="hide-min-phablet">
+      <button type="button" class="mob-menu-button" mat-button (click)="drawer.toggle()">Mobile menu</button>
     </div>
-    <router-outlet></router-outlet>
-  </div>
-</div>
 
-<footer class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-16">
-        rodape
-      </div>
+    <app-side-menu class="hide-max-phablet"></app-side-menu>
+    <div class="content">
+      <router-outlet></router-outlet>
     </div>
   </div>
-</footer>
+
+</mat-drawer-container>
