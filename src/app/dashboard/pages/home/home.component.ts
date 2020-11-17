@@ -9,6 +9,8 @@ import { UsersService } from '../../../core/services/users.service';
 import { User } from '../../../core/models/user.model';
 import { ChartsService } from 'src/app/core/services/charts.service';
 import { Chart } from '../../../core/models/chart.model';
+import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
+import { Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +18,33 @@ import { Chart } from '../../../core/models/chart.model';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  /**
+   * CHART BAR OPTIONS
+   */
+
+  public barChartOptions: ChartOptions = {
+    responsive: true,
+    // We use these empty structures as placeholders for dynamic theming.
+    scales: { xAxes: [{}], yAxes: [{}] },
+    plugins: {
+      datalabels: {
+        anchor: 'end',
+        align: 'end',
+      }
+    }
+  };
+  public barChartLabels: Label[] = [];
+  public barChartType: ChartType = 'bar';
+  public barChartLegend = true;
+
+  public barChartData: ChartDataSets[] = [{ data: [], label: 'Vendas' }];
+  public chartColors: Array<any> = [
+    { // first color
+      backgroundColor: 'rgba(226, 100, 90, 0.5)',
+      borderColor: 'rgb(226, 100, 90)',
+      borderWidth: 1
+    }];
 
   cardRadius = {
     small: CardRadiusOptions.Small,
@@ -50,7 +79,8 @@ export class HomeComponent implements OnInit {
         this.invoicesData = invoices;
         // Set total amount
         this.sumaryData.totalSales = invoices.map((s) => s.AMOUNT).reduce((total, num) => total + num);
-        this.chatBarData = this.chartsService.filterTotalSalesByYear(invoices);
+        this.barChartData[0].data = this.chartsService.filterTotalSalesByYear(invoices).data;
+        this.barChartLabels = this.chartsService.filterTotalSalesByYear(invoices).labels;
       });
 
     // Get Appointments
