@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CoreModule } from './core/core.module';
 import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
@@ -39,7 +40,7 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
-    AppRoutingModule,
+    CoreModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false }
