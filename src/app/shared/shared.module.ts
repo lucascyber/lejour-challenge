@@ -5,6 +5,7 @@ import { CardComponent } from './components/card/card.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
 import { RouterModule } from '@angular/router';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -15,13 +16,15 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    ChartsModule
   ],
   exports: [
     MaterialModule,
     CardComponent,
     SideMenuComponent,
-    UserMenuComponent
+    UserMenuComponent,
+    ChartsModule
   ]
 })
 export class SharedModule { }
