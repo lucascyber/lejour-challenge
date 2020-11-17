@@ -7,6 +7,8 @@ import { Appointment } from '../../../core/models/appointment.model';
 import { Status } from '../../../core/enum/status.enum';
 import { UsersService } from '../../../core/services/users.service';
 import { User } from '../../../core/models/user.model';
+import { ChartsService } from 'src/app/core/services/charts.service';
+import { Chart } from '../../../core/models/chart.model';
 
 @Component({
   selector: 'app-home',
@@ -31,10 +33,13 @@ export class HomeComponent implements OnInit {
     totalClients: 0,
   };
 
+  chatBarData: Chart;
+
   constructor(
     private invoiceService: InvoiceService,
     private appointmentService: AppointmentService,
-    private userService: UsersService
+    private userService: UsersService,
+    public chartsService: ChartsService,
   ) { }
 
   ngOnInit() {
@@ -45,6 +50,7 @@ export class HomeComponent implements OnInit {
         this.invoicesData = invoices;
         // Set total amount
         this.sumaryData.totalSales = invoices.map((s) => s.AMOUNT).reduce((total, num) => total + num);
+        this.chatBarData = this.chartsService.filterTotalSalesByYear(invoices);
       });
 
     // Get Appointments
@@ -65,6 +71,10 @@ export class HomeComponent implements OnInit {
         this.sumaryData.totalClients = users.length;
       });
 
+  }
+
+  getChartData(invoice: Invoice[]): Chart {
+    return this.chartsService.filterTotalSalesByYear(invoice);
   }
 
 }

@@ -5,13 +5,15 @@ import { CardComponent } from './components/card/card.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
 import { RouterModule } from '@angular/router';
-import { ChartsModule } from 'ng2-charts';
+import { ChartsModule, ThemeService } from 'ng2-charts';
+import { ChartBarComponent } from './components/chart-bar/chart-bar.component';
 
 @NgModule({
   declarations: [
     CardComponent,
     SideMenuComponent,
-    UserMenuComponent
+    UserMenuComponent,
+    ChartBarComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,11 @@ import { ChartsModule } from 'ng2-charts';
     CardComponent,
     SideMenuComponent,
     UserMenuComponent,
+    ChartBarComponent,
     ChartsModule
+  ],
+  providers: [
+    ThemeService
   ]
 })
 export class SharedModule { }
