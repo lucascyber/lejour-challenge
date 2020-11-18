@@ -11,6 +11,14 @@ export const environment = {
     appointment: 'https://sheet2api.com/v1/ByR2h1huRjyQ/fiap/appointment',
     favorites: 'https://sheet2api.com/v1/ByR2h1huRjyQ/fiap/wedding_favorites'
   }
+  // JSON SERVER
+  // endPoints: {
+  //   user: 'http://localhost:3000/users',
+  //   invoice: 'http://localhost:3000/invoice',
+  //   wending: 'http://localhost:3000/wendding',
+  //   appointment: 'http://localhost:3000/appointments',
+  //   favorites: 'http://localhost:3000/wendding-favorites'
+  // }
 };
 
 /*
