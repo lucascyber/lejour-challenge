@@ -36,7 +36,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.appointmentsService.getAppointments({}).subscribe((invoice) => {
       const cat = invoice.map((x) => x.STATUS);
-      console.log(cat.filter((x, i) => cat.indexOf(x) === i));
     });
   }
 }
