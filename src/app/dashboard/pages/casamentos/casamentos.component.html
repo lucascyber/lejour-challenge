@@ -4,6 +4,34 @@
   </div>
 </div>
 
+<!-- CASAMENTOS POR QUANTIDADE DE CONVIDADOS -->
+<div class="row charts-sumary mt-1">
+  <div class="col-md-offset-2 col-sm-12 col-md-8">
+    <app-card [radius]=cardRadius.small>
+      <div class="card-wrapper__large">
+        <div class="chart-card-header">
+          <h4 class="text-merriweather__md--bold color-grey-base">Qtdade de convidados por qtdade de casamentos ({{byGuestsCurrentYear}})</h4>
+          <div class="menu">
+            <button mat-icon-button [matMenuTriggerFor]="menuConvidados" aria-label="Filtro">
+              <mat-icon>filter_alt</mat-icon>
+            </button>
+            <mat-menu #menuConvidados>
+              <button mat-menu-item (click)="getYearValue($event, 'guests')" *ngFor="let year of weddingYears">
+                {{ year }}
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+        <div class="chart-wrapper">
+          <canvas baseChart [datasets]="byGuestChartData" [labels]="byGuestChartLabels" [options]="byGuestChartOptions"
+            [legend]="byGuestChartLegend" [chartType]="byGuestChartType" [colors]="byGuestChartColors">
+          </canvas>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>
+
 <!-- CASAMENTOS POR MÊS -->
 <div class="row row-chart">
   <div class="col-sm-12 col-md-6">
@@ -39,34 +67,6 @@
         <div class="chart-card-body">
           <canvas baseChart [datasets]="byStyleChartData" [labels]="byStyleChartLabels" [options]="byStyleChartOptions"
             [legend]="byStyleChartLegend" [chartType]="byStyleChartType" [colors]="byStyleChartColors">
-          </canvas>
-        </div>
-      </div>
-    </app-card>
-  </div>
-</div>
-
-<!-- CASAMENTOS POR QUANTIDADE DE CONVIDADOS -->
-<div class="row charts-sumary mt-1">
-  <div class="col-sm-12 col-md-6">
-    <app-card [radius]=cardRadius.small>
-      <div class="card-wrapper__large">
-        <div class="chart-card-header">
-          <h4 class="text-merriweather__md--bold color-grey-base">Qtdade de convidados por qtdade de casamento ({{byGuestsCurrentYear}})</h4>
-          <div class="menu">
-            <button mat-icon-button [matMenuTriggerFor]="menuConvidados" aria-label="Filtro">
-              <mat-icon>filter_alt</mat-icon>
-            </button>
-            <mat-menu #menuConvidados>
-              <button mat-menu-item (click)="getYearValue($event, 'guests')" *ngFor="let year of weddingYears">
-                {{ year }}
-              </button>
-            </mat-menu>
-          </div>
-        </div>
-        <div class="chart-wrapper">
-          <canvas baseChart [datasets]="byGuestChartData" [labels]="byGuestChartLabels" [options]="byGuestChartOptions"
-            [legend]="byGuestChartLegend" [chartType]="byGuestChartType" [colors]="byGuestChartColors">
           </canvas>
         </div>
       </div>
