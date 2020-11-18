@@ -52,6 +52,23 @@ export class AgendamentoComponent implements OnInit {
         'rgba(226, 100, 90, 0.5)',
         'rgba(219, 93, 121, 0.5)',
       ],
+      borderColor: [
+        'rgb(255, 184, 84)',
+        'rgb(132, 184, 226)',
+        'rgb(104, 191, 183)',
+        'rgb(234, 128, 121)',
+        'rgb(134, 208, 203)',
+        'rgb(226, 100, 90)',
+        'rgb(219, 93, 121)',
+        'rgb(255, 184, 84)',
+        'rgb(132, 184, 226)',
+        'rgb(104, 191, 183)',
+        'rgb(234, 128, 121)',
+        'rgb(134, 208, 203)',
+        'rgb(226, 100, 90)',
+        'rgb(219, 93, 121)',
+      ],
+      borderWidth: 1
     },
   ];
 
@@ -66,6 +83,14 @@ export class AgendamentoComponent implements OnInit {
         'rgba(226, 100, 90, 0.5)',
         'rgba(132, 184, 226, 0.5)'
       ],
+      borderColor: [
+        'rgb(255, 184, 84)',
+        'rgb(132, 184, 226)',
+        'rgb(104, 191, 183)',
+        'rgb(226, 100, 90)',
+        'rgb(132, 184, 226)'
+      ],
+      borderWidth: 1
     },
   ];
 

@@ -44,7 +44,19 @@ export class HomeComponent implements OnInit {
   // public pieChartPlugins = [pluginDataLabels];
   public pieChartColors = [
     {
-      backgroundColor: ['rgba(255, 184, 84, 0.5)', 'rgba(132, 184, 226, 0.5)', 'rgba(104, 191, 183, 0.5)', 'rgba(219, 93, 121, 0.5)'],
+      backgroundColor: [
+        'rgba(255, 184, 84, 0.5)',
+        'rgba(132, 184, 226, 0.5)',
+        'rgba(104, 191, 183, 0.5)',
+        'rgba(219, 93, 121, 0.5)'
+      ],
+      borderColor: [
+        'rgb(255, 184, 84)',
+        'rgb(132, 184, 226)',
+        'rgb(104, 191, 183)',
+        'rgb(219, 93, 121)',
+      ],
+      borderWidth: 1
     },
   ];
 
