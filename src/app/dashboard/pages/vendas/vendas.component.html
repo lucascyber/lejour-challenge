@@ -4,7 +4,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row row-chart">
   <div class="col-sm-12 col-md-6">
     <app-card [radius]=cardRadius.small>
       <div class="card-wrapper__large">
@@ -12,10 +12,12 @@
         <div class="chart-card-header">
           <h4 class="text-merriweather__md--bold color-grey-base">Vendas por mês</h4>
           <div class="menu">
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-              <mat-icon>filter_alt</mat-icon>
+            <button
+              mat-icon-button [matMenuTriggerFor]="menu1"
+              matTooltip="Filtrar">
+              <mat-icon class="color-grey-dark">filter_alt</mat-icon>
             </button>
-            <mat-menu #menu="matMenu">
+            <mat-menu #menu1="matMenu">
               <button
                 *ngFor="let select of yearSelectionStructure"
                 value={{select}}
@@ -41,5 +43,94 @@
         <!-- Card Body -->
       </div>
       </app-card>
+  </div>
+
+  <div class="col-sm-12 col-md-6">
+    <app-card [radius]=cardRadius.small>
+      <div class="card-wrapper__large">
+        <!-- Card Header -->
+        <div class="chart-card-header">
+          <h4 class="text-merriweather__md--bold color-grey-base">Vendas por categoria</h4>
+        </div>
+        <!-- Card Header -->
+        <!-- Card Body -->
+        <div class="chart-card-body">
+          <canvas baseChart
+          [data]="categoryChartData"
+          [labels]="categoryChartLabel"
+          [chartType]="pieChartType"
+          [options]="pieChartOptions"
+          [colors]="pieChartColors"
+          [legend]="pieChartLegend">
+        </canvas>
+        </div>
+        <!-- Card Body -->
+      </div>
+      </app-card>
+  </div>
+</div>
+
+<div class="row row-chart">
+  <div class="col-sm-12 col-md-6">
+    <app-card [radius]=cardRadius.small>
+      <div class="card-wrapper__large">
+        <!-- Card Header -->
+        <div class="chart-card-header">
+          <h4 class="text-merriweather__md--bold color-grey-base">Vendas por categoria</h4>
+        </div>
+        <!-- Card Header -->
+        <!-- Card Body -->
+        <div class="chart-card-body">
+          <canvas baseChart
+          [data]="comissionCategoryData"
+          [labels]="comissionCategoryLabel"
+          [chartType]="pieChartType"
+          [options]="pieChartOptions"
+          [colors]="comissionCategoryColors"
+          [legend]="pieChartLegend">
+        </canvas>
+        </div>
+        <!-- Card Body -->
+      </div>
+      </app-card>
+  </div>
+  <div class="col-sm-6">
+    <app-card [radius]=cardRadius.small>
+      <div class="card-wrapper__large">
+        <!-- Card Header -->
+        <div class="chart-card-header">
+          <h4 class="text-merriweather__md--bold color-grey-base">Comissão Lejour</h4>
+          <div class="menu">
+            <button
+              mat-icon-button [matMenuTriggerFor]="menu2"
+              matTooltip="Filtrar">
+              <mat-icon class="color-grey-dark">filter_alt</mat-icon>
+            </button>
+            <mat-menu #menu2="matMenu">
+              <button
+                *ngFor="let select of yearSelectionStructure"
+                value={{select}}
+                mat-menu-item
+                (click)="filterComissionByMonths(select)">
+                <span>{{select}}</span>
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+        <!-- Card Header -->
+        <!-- Card Body -->
+        <div class="chart-card-body">
+          <canvas baseChart
+            [datasets]="comissionMonthsChartData"
+            [labels]="comissionMonthsChartLabel"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="comissionMonthsChartColor">
+          </canvas>
+        </div>
+        <!-- Card Body -->
+      </div>
+    </app-card>
   </div>
 </div>

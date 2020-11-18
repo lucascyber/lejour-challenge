@@ -33,4 +33,19 @@ export const chartBarConfig: ChartOptions = {
         align: 'end',
       }
     },
+};
+
+export const pieChartConfig: ChartOptions = {
+  responsive: true,
+    legend: {
+      position: 'left',
+    },
+    plugins: {
+      datalabels: {
+        formatter: (value, ctx) => {
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+          return label;
+        },
+      },
+    }
 }
