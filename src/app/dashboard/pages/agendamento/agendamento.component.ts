@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartOptions, ChartType } from 'chart.js';
+import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
-import { pieChartConfig } from 'src/app/core/enum/months.enum';
+import { chartBarConfig, pieChartConfig } from 'src/app/core/enum/months.enum';
 import { CardRadiusOptions } from 'src/app/shared/components/card/card.enum';
 import { Appointment } from '../../../core/models/appointment.model';
 import { AppointmentService } from '../../../core/services/appointment.service';
@@ -19,6 +19,10 @@ export class AgendamentoComponent implements OnInit {
     big: CardRadiusOptions.Big,
     modal: CardRadiusOptions.Modal
   };
+
+  yearSelection = '2020';
+  yearSelectionStructure = [];
+  currentyear = 0;
 
   /**
    * Chart PIE Status
@@ -65,6 +69,23 @@ export class AgendamentoComponent implements OnInit {
     },
   ];
 
+  /**
+   * CHART BAR MONTHS
+   */
+
+  public barChartOptions: ChartOptions = chartBarConfig;
+  public monthsChartLabel: Label[] = [];
+  public barChartType: ChartType = 'bar';
+  public barChartLegend = false;
+
+  public monthsChartData: ChartDataSets[] = [{ data: [], label: 'Vendas' }];
+  public monthsChartColor: Array<any> = [
+    { // first color
+      backgroundColor: 'rgba(104, 191, 183, 0.5)',
+      borderColor: 'rgb(104, 191, 183)',
+      borderWidth: 1
+    }];
+
   appointmentsData: Appointment[];
 
   constructor(
@@ -84,7 +105,19 @@ export class AgendamentoComponent implements OnInit {
         // Set category chart
         this.categoryChartData = this.chartService.getAppointmentsByCategory(appointments).data;
         this.categoryChartLabel = this.chartService.getAppointmentsByCategory(appointments).labels;
+
+        // Month Chart
+        this.yearSelectionStructure = this.chartService.filterAppointmentsYears(appointments);
+        this.monthsChartData[0].data = this.chartService.getAppointmentByMonths(appointments, this.yearSelectionStructure[0]).data;
+        this.monthsChartLabel = this.chartService.getAppointmentByMonths(appointments, this.yearSelectionStructure[0]).labels;
+        this.currentyear = this.yearSelectionStructure[0];
       });
+  }
+
+  filterByMonths(value) {
+    this.monthsChartData[0].data = this.chartService.getAppointmentByMonths(this.appointmentsData, value).data;
+    this.currentyear = value;
+    this.monthsChartLabel = this.chartService.getAppointmentByMonths(this.appointmentsData, value).labels;
   }
 
 }

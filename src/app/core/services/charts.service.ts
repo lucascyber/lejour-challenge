@@ -97,7 +97,7 @@ export class ChartsService {
       cat.filter((i) => new Date(i.WEDDING_DATE).getMonth() === m)
       .length
     ));
-    
+
     return {
       data: totalWeddingsPerMonth,
       labels: labelMonths,
@@ -107,7 +107,7 @@ export class ChartsService {
   filterWeddingsByStyle(weddings: Wendding[]): Chart {
     const weddingStyles = weddings.map((wedding) => wedding.STYLE)
     const stylesLabel = weddingStyles.filter((x, i) => weddingStyles.indexOf(x) === i)
-    
+
     const totalByStyle = stylesLabel.map((m) => (
       weddingStyles.filter((i) => i === m)
       .length
@@ -136,7 +136,7 @@ export class ChartsService {
     console.log('quantidade de convidados', guestsByYear);
     console.log('label', guestsQuantityMerged);
 
-    
+
     return {
       data: guestsByYear,
       labels: guestsQuantityMerged
@@ -234,5 +234,34 @@ export class ChartsService {
       data: totalAppointment,
       labels: appointmentsStatus,
     };
+  }
+
+  getAppointmentByMonths(appointments: Appointment[], year: number): Chart {
+    // Get Months list
+    const cat = appointments.filter((x) => new Date(x.BEGINS_AT).getFullYear() === year);
+    const months = cat.map((m) => new Date(m.BEGINS_AT).getMonth());
+    const monthsMerged = months.filter((x, i) => months.indexOf(x) === i);
+    const labelMonths = monthsMerged.map((k) => Months[k]);
+
+    const amountTotal = monthsMerged.map((m) => (
+      appointments.filter((i) => new Date(i.BEGINS_AT).getMonth() === m)
+      .map((x) => x).length
+    ));
+
+    console.log(amountTotal);
+    console.log(labelMonths);
+
+    return {
+      data: amountTotal,
+      labels: labelMonths,
+    };
+  }
+
+  // filter weddings by Month
+  filterAppointmentsYears(appointments: Appointment[]): Array<number> {
+    const cat = appointments.map((a) => new Date(a.BEGINS_AT).getFullYear());
+    const years = cat.filter((x, i) => cat.indexOf(x) === i);
+
+    return years;
   }
 }
