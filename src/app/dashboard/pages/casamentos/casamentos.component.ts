@@ -54,8 +54,8 @@ export class CasamentosComponent implements OnInit {
 
   public byMonthChartColors: Array<any> = [
     { 
-      backgroundColor: 'rgba(226, 100, 90, 0.5)',
-      borderColor: 'rgb(226, 100, 90)',
+      backgroundColor: 'rgba(104, 191, 183, 0.5)',
+      borderColor: 'rgb(104, 191, 183)',
       borderWidth: 1
     }];
 
@@ -80,8 +80,8 @@ export class CasamentosComponent implements OnInit {
   public byStyleChartLegend = true;
   public byStyleChartColors = [
     { // first color
-      backgroundColor: 'rgba(226, 100, 90, 0.5)',
-      borderColor: 'rgb(226, 100, 90)',
+      backgroundColor: [ 'rgba(226, 100, 90, 0.5)', 'rgba(255, 184, 84, 0.5)', 'rgba(132, 184, 226, 0.5)' ],
+      borderColor: ['rgb(226, 100, 90)', 'rgb(255, 184, 84)', 'rgb(132, 184, 226)' ],
       borderWidth: 1
     }];
     
@@ -113,36 +113,12 @@ export class CasamentosComponent implements OnInit {
 
   public byGuestChartColors: Array<any> = [
     { 
-      backgroundColor: 'rgba(226, 100, 90, 0.5)',
-      borderColor: 'rgb(226, 100, 90)',
+      backgroundColor: 'rgba(202, 170, 244, 0.5)',
+      borderColor: 'rgb(202, 170, 244)',
       borderWidth: 1
     }];
 
-  // By Vendor Pie Chart
-  public byVendorChartOptions: ChartOptions = {
-    responsive: true,
-    legend: {
-      position: 'top',
-    },
-    plugins: {
-      datalabels: {
-        formatter: (value, ctx) => {
-          const label = ctx.chart.data.labels[ctx.dataIndex];
-          return label;
-        },
-      },
-    }
-  };
-  public byVendorChartLabels: Label[] = [];
-  public byVendorChartType: ChartType = 'pie';
-  public byVendorChartData: ChartDataSets[] = [{ data: [], label: 'Estilos de casamento' }];
-  public byVendorChartLegend = true;
-  public byVendorChartColors = [
-    { // first color
-      backgroundColor: 'rgba(226, 100, 90, 0.5)',
-      borderColor: 'rgb(226, 100, 90)',
-      borderWidth: 1
-    }];
+
 
   constructor(
     private weddingService: WenddingService,

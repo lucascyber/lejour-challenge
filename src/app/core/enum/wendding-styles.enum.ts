@@ -3,3 +3,4 @@ export enum WenddingStyles {
   Rustico = 'rustico',
   Moderno = 'moderno'
 }
+
