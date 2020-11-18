@@ -20,6 +20,36 @@ import { Label } from 'ng2-charts';
 export class HomeComponent implements OnInit {
 
   /**
+   * PIE CHART
+   */
+
+  public pieChartOptions: ChartOptions = {
+    responsive: true,
+    legend: {
+      position: 'left',
+    },
+    plugins: {
+      datalabels: {
+        formatter: (value, ctx) => {
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+          return label;
+        },
+      },
+    }
+  };
+  public pieChartLabels: Label[] = [];
+  public pieChartData: number[] = [];
+  public pieChartType: ChartType = 'pie';
+  public pieChartLegend = true;
+  // public pieChartPlugins = [pluginDataLabels];
+  public pieChartColors = [
+    {
+      backgroundColor: ['rgba(255, 184, 84, 0.5)', 'rgba(132, 184, 226, 0.5)', 'rgba(104, 191, 183, 0.5)', 'rgba(219, 93, 121, 0.5)'],
+    },
+  ];
+
+
+  /**
    * CHART BAR OPTIONS
    */
 
@@ -92,6 +122,9 @@ export class HomeComponent implements OnInit {
         this.sumaryData.totalAppointments = appointments.filter((a) => (
           a.STATUS === Status.VISITED || a.STATUS === Status.CONFIRMED
         )).length;
+
+        this.pieChartData = this.chartsService.getTotalAppointmentsByStatus(appointments).data;
+        this.pieChartLabels = this.chartsService.getTotalAppointmentsByStatus(appointments).labels;
       });
 
     // Get Users

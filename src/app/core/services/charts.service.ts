@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Invoice } from '../models/invoice.model';
 import { Chart } from '../models/chart.model';
 import { Months } from '../enum/months.enum';
+import { Appointment } from '../models/appointment.model';
 
 
 @Injectable({
@@ -47,6 +48,30 @@ export class ChartsService {
     return {
       data: amountTotal,
       labels: years,
+    };
+  }
+
+  // Get total appointments by status
+  getTotalAppointmentsByStatus(appointments: Appointment[]): Chart {
+    const labels = {
+      CREATED: 'Criado',
+      CANCELED: 'Cancelado',
+      CONFIRMED: 'Confirmado',
+      VISITED: 'Visitado'
+    }
+    // Get Status
+    const status = appointments.map((a) => a.STATUS);
+    const appointmentsStatus = status.filter((x, i) => status.indexOf(x) === i);
+
+    const totalAppointment = appointmentsStatus.map((a) => (
+      appointments.filter((p) => p.STATUS === a).length
+    ));
+
+    const translatedLabel = appointmentsStatus.map((k) => labels[k]);
+
+    return {
+      data: totalAppointment,
+      labels: translatedLabel,
     };
   }
 }
