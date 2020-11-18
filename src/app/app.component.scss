@@ -1,3 +1,5 @@
+@import '../assets/style/helpers/mixins';
+
 .main-root {
   width: 100%;
   height: 100vh;
@@ -5,8 +7,14 @@
 }
 
 .content-wapper {
-  padding: 1rem 2em 0 2em;
   display: flex;
+
+  @include breakpoint('phablet', min) {
+    padding: 1rem 2em 0 2em;
+  }
+  @include breakpoint('phablet', max) {
+    padding-top: 1rem;
+  }
 }
 
 .content {

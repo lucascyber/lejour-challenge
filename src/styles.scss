@@ -2,6 +2,7 @@
 /*BASE CSS*/
 @import './assets/style/base/colors';
 @import './assets/style/base/typography';
+@import './assets/style/helpers/mixins';
 @import './assets/icons/css/fontello.css';
 @import './assets/style/vendor/bootstrap.css';
 
@@ -33,4 +34,12 @@ body {
 /* espaçamento para colocar entre rows de tabelas */
 .mt-1 {
   margin-top: 45px;
+}
+
+.row-chart {
+  @include breakpoint('phablet', max) {
+    [class*='col'] {
+      margin-bottom: 2rem;
+    }
+  }
 }
