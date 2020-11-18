@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsersService } from './services/users.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { WenddingService } from './services/wendding.service';
 import { AppointmentService } from './services/appointment.service';
 import { WenddingFavoriteService } from './services/wendding-favorite.service';
 import { InvoiceService } from './services/invoice.service';
 import { ChartsService } from './services/charts.service';
+import { LoaderService } from './services/loader.service';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
 
 
 
@@ -24,7 +26,9 @@ import { ChartsService } from './services/charts.service';
     AppointmentService,
     InvoiceService,
     WenddingFavoriteService,
-    ChartsService
+    ChartsService,
+    LoaderService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
   ]
 })
 export class CoreModule { }
