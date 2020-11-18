@@ -130,7 +130,6 @@ export class CasamentosComponent implements OnInit {
     this.weddingService.getWenddings({})
       .subscribe((weddings) => {
         // Bar Chart by Month
-        console.log(weddings);
         this.weddingData = weddings;
         this.weddingYears = this.chartsService.filterWeddingYears(weddings);
         const chartByMonth = this.chartsService.filterTotalWeddingsByMonth(this.weddingData);

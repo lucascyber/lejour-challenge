@@ -241,10 +241,6 @@ export class ChartsService {
       appointments.filter((i) => new Date(i.BEGINS_AT).getMonth() === m)
       .map((x) => x).length
     ));
-
-    console.log(amountTotal);
-    console.log(labelMonths);
-
     return {
       data: amountTotal,
       labels: labelMonths,
