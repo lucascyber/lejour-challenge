@@ -156,4 +156,20 @@ export class ChartsService {
       labels: translatedLabel,
     };
   }
+
+  getAppointmentsByCategory(appointments: Appointment[]): Chart {
+
+    // Get Status
+    const status = appointments.map((a) => a.VENDOR_CATEGORY);
+    const appointmentsStatus = status.filter((x, i) => status.indexOf(x) === i);
+
+    const totalAppointment = appointmentsStatus.map((a) => (
+      appointments.filter((p) => p.VENDOR_CATEGORY === a).length
+    ));
+
+    return {
+      data: totalAppointment,
+      labels: appointmentsStatus,
+    };
+  }
 }

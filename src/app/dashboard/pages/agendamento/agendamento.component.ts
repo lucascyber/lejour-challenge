@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartOptions, ChartType } from 'chart.js';
+import { Label } from 'ng2-charts';
+import { pieChartConfig } from 'src/app/core/enum/months.enum';
+import { CardRadiusOptions } from 'src/app/shared/components/card/card.enum';
+import { Appointment } from '../../../core/models/appointment.model';
+import { AppointmentService } from '../../../core/services/appointment.service';
+import { ChartsService } from '../../../core/services/charts.service';
 
 @Component({
   selector: 'app-agendamento',
@@ -7,9 +14,77 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgendamentoComponent implements OnInit {
 
-  constructor() { }
+  cardRadius = {
+    small: CardRadiusOptions.Small,
+    big: CardRadiusOptions.Big,
+    modal: CardRadiusOptions.Modal
+  };
+
+  /**
+   * Chart PIE Status
+   */
+
+  public pieChartOptions: ChartOptions = pieChartConfig;
+  public pieChartType: ChartType = 'pie';
+  public pieChartLegend = true;
+  // public pieChartPlugins = [pluginDataLabels];
+  public statusChartLabel: Label[] = [];
+  public statusChartData: number[] = [];
+  public pieChartColors = [
+    {
+      backgroundColor: [
+        'rgba(255, 184, 84, 0.5)',
+        'rgba(132, 184, 226, 0.5)',
+        'rgba(104, 191, 183, 0.5)',
+        'rgba(234, 128, 121, 0.5)',
+        'rgba(134, 208, 203, 0.5)',
+        'rgba(226, 100, 90, 0.5)',
+        'rgba(219, 93, 121, 0.5)',
+        'rgba(255, 184, 84, 0.5)',
+        'rgba(132, 184, 226, 0.5)',
+        'rgba(104, 191, 183, 0.5)',
+        'rgba(234, 128, 121, 0.5)',
+        'rgba(134, 208, 203, 0.5)',
+        'rgba(226, 100, 90, 0.5)',
+        'rgba(219, 93, 121, 0.5)',
+      ],
+    },
+  ];
+
+  public categoryChartLabel: Label[] = [];
+  public categoryChartData: number[] = [];
+  public categoryChartColors = [
+    {
+      backgroundColor: [
+        'rgba(255, 184, 84, 0.5)',
+        'rgba(132, 184, 226, 0.5)',
+        'rgba(104, 191, 183, 0.5)',
+        'rgba(226, 100, 90, 0.5)',
+        'rgba(132, 184, 226, 0.5)'
+      ],
+    },
+  ];
+
+  appointmentsData: Appointment[];
+
+  constructor(
+    private appointmentService: AppointmentService,
+    private chartService: ChartsService
+  ) { }
 
   ngOnInit() {
+    this.appointmentService.getAppointments({})
+      .subscribe((appointments) => {
+        this.appointmentsData = appointments;
+
+        // Set status chart
+        this.statusChartData = this.chartService.getTotalAppointmentsByStatus(appointments).data;
+        this.statusChartLabel = this.chartService.getTotalAppointmentsByStatus(appointments).labels;
+
+        // Set category chart
+        this.categoryChartData = this.chartService.getAppointmentsByCategory(appointments).data;
+        this.categoryChartLabel = this.chartService.getAppointmentsByCategory(appointments).labels;
+      });
   }
 
 }

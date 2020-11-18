@@ -1,1 +1,54 @@
-<p>agendamento works!</p>
+<div class="row">
+  <div class="col-sm-12">
+    <h2 class="h2 color-grey-dark">Agendamentos</h2>
+  </div>
+</div>
+
+<div class="row row-chart">
+  <div class="col-sm-12 col-md-6">
+    <app-card [radius]=cardRadius.small>
+      <div class="card-wrapper__large">
+        <!-- Card Header -->
+        <div class="chart-card-header">
+          <h4 class="text-merriweather__md--bold color-grey-base">Agendamentos por status</h4>
+        </div>
+        <!-- Card Header -->
+        <!-- Card Body -->
+        <div class="chart-card-body">
+          <canvas baseChart
+            [data]="statusChartData"
+            [labels]="statusChartLabel"
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [colors]="pieChartColors"
+            [legend]="pieChartLegend">
+          </canvas>
+        </div>
+        <!-- Card Body -->
+      </div>
+    </app-card>
+  </div>
+  <div class="col-sm-12 col-md-6">
+    <app-card [radius]=cardRadius.small>
+      <div class="card-wrapper__large">
+        <!-- Card Header -->
+        <div class="chart-card-header">
+          <h4 class="text-merriweather__md--bold color-grey-base">Agendamentos por categoria</h4>
+        </div>
+        <!-- Card Header -->
+        <!-- Card Body -->
+        <div class="chart-card-body">
+          <canvas baseChart
+            [data]="categoryChartData"
+            [labels]="categoryChartLabel"
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [colors]="categoryChartColors"
+            [legend]="pieChartLegend">
+          </canvas>
+        </div>
+        <!-- Card Body -->
+      </div>
+    </app-card>
+  </div>
+</div>
