@@ -1,3 +1,5 @@
+import { ChartOptions } from 'chart.js';
+
 export const Months = {
   0: 'Jan',
   1: 'Fev',
@@ -12,3 +14,23 @@ export const Months = {
   10: 'Nov',
   11: 'Dez',
 };
+
+
+export const chartBarConfig: ChartOptions = {
+  responsive: true,
+    // We use these empty structures as placeholders for dynamic theming.
+    scales: {
+      xAxes: [{}],
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+        }
+      }]
+    },
+    plugins: {
+      datalabels: {
+        anchor: 'end',
+        align: 'end',
+      }
+    },
+}
