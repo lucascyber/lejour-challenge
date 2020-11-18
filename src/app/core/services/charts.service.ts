@@ -4,6 +4,7 @@ import { Wendding } from '../models/wendding.model';
 import { Chart } from '../models/chart.model';
 import { Months } from '../enum/months.enum';
 import { Appointment } from '../models/appointment.model';
+import { WenddingStyles } from '../enum/wendding-styles.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -105,17 +106,21 @@ export class ChartsService {
   }
 
   filterWeddingsByStyle(weddings: Wendding[]): Chart {
-    const weddingStyles = weddings.map((wedding) => wedding.STYLE)
-    const stylesLabel = weddingStyles.filter((x, i) => weddingStyles.indexOf(x) === i)
+    const weddingStyles = weddings.map((wedding) => wedding.STYLE);
+    const stylesMerged = weddingStyles.filter((x, i) => weddingStyles.indexOf(x) === i);
+    const stylesLabel = stylesMerged.map((k) => WenddingStyles[k]);
     
-    const totalByStyle = stylesLabel.map((m) => (
+
+    console.log(stylesLabel)
+
+    const totalByStyle = stylesMerged.map((m) => (
       weddingStyles.filter((i) => i === m)
       .length
     ));
 
     return {
       data: totalByStyle,
-      labels: stylesLabel
+      labels: stylesMerged
     }
   }
 
@@ -129,13 +134,6 @@ export class ChartsService {
       yearFilter.filter((y) => Math.round(y.NUMBER_OF_GUESTS) === q)
       .length
     ));
-    console.log(yearFilter);
-    console.log(guestsQuantity);
-    console.log(guestsQuantityMerged);
-
-    console.log('quantidade de convidados', guestsByYear);
-    console.log('label', guestsQuantityMerged);
-
     
     return {
       data: guestsByYear,

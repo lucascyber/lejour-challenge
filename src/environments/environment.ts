@@ -4,20 +4,20 @@
 
 export const environment = {
   production: false,
-  endPoints: {
-    user: 'http://localhost:3000/users',
-    invoice: 'http://localhost:3000/invoice',
-    wending: 'http://localhost:3000/wendding',
-    appointment: 'http://localhost:3000/appointments',
-    favorites: 'http://localhost:3000/wendding-favorites'
-  }
   // endPoints: {
-  //   user: 'https://sheet2api.com/v1/ByR2h1huRjyQ/fiap/user',
-  //   invoice: 'https://sheet2api.com/v1/ByR2h1huRjyQ/fiap/invoice',
-  //   wending: 'https://sheet2api.com/v1/ByR2h1huRjyQ/fiap/wedding',
-  //   appointment: 'https://sheet2api.com/v1/ByR2h1huRjyQ/fiap/appointment',
-  //   favorites: 'https://sheet2api.com/v1/ByR2h1huRjyQ/fiap/wedding_favorites'
+  //   user: 'http://localhost:3000/users',
+  //   invoice: 'http://localhost:3000/invoice',
+  //   wending: 'http://localhost:3000/wendding',
+  //   appointment: 'http://localhost:3000/appointments',
+  //   favorites: 'http://localhost:3000/wendding-favorites'
   // }
+  endPoints: {
+    user: 'https://sheet2api.com/v1/ByR2h1huRjyQ/fiap/user',
+    invoice: 'https://sheet2api.com/v1/ByR2h1huRjyQ/fiap/invoice',
+    wending: 'https://sheet2api.com/v1/ByR2h1huRjyQ/fiap/wedding',
+    appointment: 'https://sheet2api.com/v1/ByR2h1huRjyQ/fiap/appointment',
+    favorites: 'https://sheet2api.com/v1/ByR2h1huRjyQ/fiap/wedding_favorites'
+  }
 };
 
 /*
