@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Invoice } from '../models/invoice.model';
+import { Wendding } from '../models/wendding.model';
 import { Chart } from '../models/chart.model';
 import { Months } from '../enum/months.enum';
+import { fromEventPattern } from 'rxjs';
 
 
 @Injectable({
@@ -44,9 +46,28 @@ export class ChartsService {
       .map((x) => x.AMOUNT).reduce((total, num) => Math.round(total + num))
     ));
 
+    console.log(amountTotal, years)
     return {
       data: amountTotal,
       labels: years,
     };
+  }
+
+  // filter weddings by Month
+  filterTotalWeddingsByYear(weddings: Wendding[]) {
+    const cat = weddings.map((wedding) => new Date(wedding.WEDDING_DATE).getFullYear());
+    const years = cat.filter((x, i) => cat.indexOf(x) === i);
+    console.log(cat)
+    console.log(years)
+
+    const totalWeddingsPerYear = years.map((y) => (
+      weddings.filter((i) => new Date(i.WEDDING_DATE).getFullYear() === y)
+      .map((x) => new Date(x.WEDDING_DATE).getMonth() + 1).length
+    ));
+
+    return {
+      data: totalWeddingsPerYear,
+      labels: years,
+    }
   }
 }

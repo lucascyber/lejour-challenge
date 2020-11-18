@@ -1,1 +1,30 @@
-<p>casamentos works!</p>
+<div class="row">
+    <div class="col-sm-12">
+      <h2 class="h2 color-grey-dark">Casamentos</h2>
+    </div>
+  </div>
+
+<div class="row charts-sumary">
+    <div class="col-sm-12 col-md-6">
+      <app-card [radius]=cardRadius.small>
+        <div class="card-wrapper__medium">
+          <h4 class="text-merriweather__md--bold color-grey-base">Casamentos por mês</h4>
+          <div class="chart-wrapper">
+            <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              [colors]="chartColors">
+            </canvas>
+          </div>
+        </div>
+      </app-card>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <app-card [radius]=cardRadius.small>
+  
+      </app-card>
+    </div>
+  </div>
