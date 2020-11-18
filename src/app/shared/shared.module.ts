@@ -7,13 +7,15 @@ import { UserMenuComponent } from './components/user-menu/user-menu.component';
 import { RouterModule } from '@angular/router';
 import { ChartsModule, ThemeService } from 'ng2-charts';
 import { ChartBarComponent } from './components/chart-bar/chart-bar.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
     CardComponent,
     SideMenuComponent,
     UserMenuComponent,
-    ChartBarComponent
+    ChartBarComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { ChartBarComponent } from './components/chart-bar/chart-bar.component';
     SideMenuComponent,
     UserMenuComponent,
     ChartBarComponent,
-    ChartsModule
+    ChartsModule,
+    LoaderComponent
   ],
   providers: [
     ThemeService
