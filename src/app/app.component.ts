@@ -21,11 +21,6 @@ export class AppComponent implements OnInit {
         link: 'dashboard/agendamentos'
       },
       {
-        nome: 'Clientes',
-        icone: 'icon-clients',
-        link: 'dashboard/clientes'
-      },
-      {
         nome: 'Casamentos',
         icone: 'icon-wending-1',
         link: 'dashboard/casamentos'
@@ -41,7 +36,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.appointmentsService.getAppointments({}).subscribe((invoice) => {
       const cat = invoice.map((x) => x.STATUS);
-      console.log(cat.filter((x, i) => cat.indexOf(x) === i));
     });
   }
 }

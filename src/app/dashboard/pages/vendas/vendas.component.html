@@ -10,7 +10,7 @@
       <div class="card-wrapper__large">
         <!-- Card Header -->
         <div class="chart-card-header">
-          <h4 class="text-merriweather__md--bold color-grey-base">Vendas por mês</h4>
+          <h4 class="text-merriweather__md--bold color-grey-base">Vendas por mês ({{currentMonthYear}})</h4>
           <div class="menu">
             <button
               mat-icon-button [matMenuTriggerFor]="menu1"
@@ -66,7 +66,7 @@
         </div>
         <!-- Card Body -->
       </div>
-      </app-card>
+    </app-card>
   </div>
 </div>
 
@@ -99,7 +99,7 @@
       <div class="card-wrapper__large">
         <!-- Card Header -->
         <div class="chart-card-header">
-          <h4 class="text-merriweather__md--bold color-grey-base">Comissão Lejour</h4>
+          <h4 class="text-merriweather__md--bold color-grey-base">Comissão Lejour mês ({{currentComissionYear}})</h4>
           <div class="menu">
             <button
               mat-icon-button [matMenuTriggerFor]="menu2"

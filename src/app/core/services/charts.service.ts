@@ -4,6 +4,7 @@ import { Wendding } from '../models/wendding.model';
 import { Chart } from '../models/chart.model';
 import { Months } from '../enum/months.enum';
 import { Appointment } from '../models/appointment.model';
+import { WenddingStyles } from '../enum/wendding-styles.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -97,7 +98,7 @@ export class ChartsService {
       cat.filter((i) => new Date(i.WEDDING_DATE).getMonth() === m)
       .length
     ));
-    
+
     return {
       data: totalWeddingsPerMonth,
       labels: labelMonths,
@@ -105,17 +106,17 @@ export class ChartsService {
   }
 
   filterWeddingsByStyle(weddings: Wendding[]): Chart {
-    const weddingStyles = weddings.map((wedding) => wedding.STYLE)
-    const stylesLabel = weddingStyles.filter((x, i) => weddingStyles.indexOf(x) === i)
-    
-    const totalByStyle = stylesLabel.map((m) => (
+    const weddingStyles = weddings.map((wedding) => wedding.STYLE);
+    const stylesMerged = weddingStyles.filter((x, i) => weddingStyles.indexOf(x) === i);
+  
+    const totalByStyle = stylesMerged.map((m) => (
       weddingStyles.filter((i) => i === m)
       .length
     ));
 
     return {
       data: totalByStyle,
-      labels: stylesLabel
+      labels: stylesMerged
     }
   }
 
@@ -129,13 +130,6 @@ export class ChartsService {
       yearFilter.filter((y) => Math.round(y.NUMBER_OF_GUESTS) === q)
       .length
     ));
-    console.log(yearFilter);
-    console.log(guestsQuantity);
-    console.log(guestsQuantityMerged);
-
-    console.log('quantidade de convidados', guestsByYear);
-    console.log('label', guestsQuantityMerged);
-
     
     return {
       data: guestsByYear,
@@ -218,5 +212,46 @@ export class ChartsService {
       data: totalAppointment,
       labels: translatedLabel,
     };
+  }
+
+  getAppointmentsByCategory(appointments: Appointment[]): Chart {
+
+    // Get Status
+    const status = appointments.map((a) => a.VENDOR_CATEGORY);
+    const appointmentsStatus = status.filter((x, i) => status.indexOf(x) === i);
+
+    const totalAppointment = appointmentsStatus.map((a) => (
+      appointments.filter((p) => p.VENDOR_CATEGORY === a).length
+    ));
+
+    return {
+      data: totalAppointment,
+      labels: appointmentsStatus,
+    };
+  }
+
+  getAppointmentByMonths(appointments: Appointment[], year: number): Chart {
+    // Get Months list
+    const cat = appointments.filter((x) => new Date(x.BEGINS_AT).getFullYear() === year);
+    const months = cat.map((m) => new Date(m.BEGINS_AT).getMonth());
+    const monthsMerged = months.filter((x, i) => months.indexOf(x) === i);
+    const labelMonths = monthsMerged.map((k) => Months[k]);
+
+    const amountTotal = monthsMerged.map((m) => (
+      appointments.filter((i) => new Date(i.BEGINS_AT).getMonth() === m)
+      .map((x) => x).length
+    ));
+    return {
+      data: amountTotal,
+      labels: labelMonths,
+    };
+  }
+
+  // filter weddings by Month
+  filterAppointmentsYears(appointments: Appointment[]): Array<number> {
+    const cat = appointments.map((a) => new Date(a.BEGINS_AT).getFullYear());
+    const years = cat.filter((x, i) => cat.indexOf(x) === i);
+
+    return years;
   }
 }

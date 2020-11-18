@@ -25,6 +25,9 @@ export class VendasComponent implements OnInit {
   yearSelection = '2020';
   yearSelectionStructure = [];
 
+  currentMonthYear = 0;
+  currentComissionYear = 0;
+
   constructor(
     private invoiceService: InvoiceService,
     private chartsService: ChartsService
@@ -68,7 +71,7 @@ export class VendasComponent implements OnInit {
   public barChartOptions: ChartOptions = chartBarConfig;
   public monthsChartLabel: Label[] = [];
   public barChartType: ChartType = 'bar';
-  public barChartLegend = true;
+  public barChartLegend = false;
 
   public monthsChartData: ChartDataSets[] = [{ data: [], label: 'Vendas' }];
   public monthsChartColor: Array<any> = [
@@ -126,6 +129,9 @@ export class VendasComponent implements OnInit {
         // Set Months the selected options
         this.yearSelectionStructure = this.chartsService.filterTotalSalesByYear(invoices).labels;
 
+        this.currentMonthYear = 2020;
+        this.currentComissionYear = 200;
+
         // Set Months chart contig
         this.monthsChartData[0].data = this.chartsService.filterTotalSalesByMonths(invoices, 2020).data;
         this.monthsChartData[0].label = 'Vendas 2020';
@@ -148,13 +154,13 @@ export class VendasComponent implements OnInit {
 
   filterByMonths(value) {
     this.monthsChartData[0].data = this.chartsService.filterTotalSalesByMonths(this.invoiceData, value).data;
-    this.monthsChartData[0].label = `Vendas ${value}`;
+    this.currentMonthYear = value;
     this.monthsChartLabel = this.chartsService.filterTotalSalesByMonths(this.invoiceData, value).labels;
   }
 
   filterComissionByMonths(value) {
     this.comissionMonthsChartData[0].data = this.chartsService.filterCommissionByMonths(this.invoiceData, value).data;
-    this.comissionMonthsChartData[0].label = `Vendas ${value}`;
+    this.currentComissionYear = value;
     this.comissionMonthsChartLabel = this.chartsService.filterCommissionByMonths(this.invoiceData, value).labels;
   }
 
