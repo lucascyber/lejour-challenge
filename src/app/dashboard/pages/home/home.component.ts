@@ -1,14 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { CardRadiusOptions } from '../../../shared/components/card/card.enum';
+//model
+import { Status } from '../../../core/enum/status.enum';
 import { Invoice } from '../../../core/models/invoice.model';
+import { Appointment } from '../../../core/models/appointment.model';
+import { User } from '../../../core/models/user.model';
+import { Chart } from '../../../core/models/chart.model';
+
+//service
 import { InvoiceService } from '../../../core/services/invoice.service';
 import { AppointmentService } from '../../../core/services/appointment.service';
-import { Appointment } from '../../../core/models/appointment.model';
-import { Status } from '../../../core/enum/status.enum';
 import { UsersService } from '../../../core/services/users.service';
-import { User } from '../../../core/models/user.model';
 import { ChartsService } from 'src/app/core/services/charts.service';
-import { Chart } from '../../../core/models/chart.model';
+
+//component
+import { CardRadiusOptions } from '../../../shared/components/card/card.enum';
+
+//package
+import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
 

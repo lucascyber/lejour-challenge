@@ -1,4 +1,4 @@
 export interface User {
-  id: string;
-  created_at: string;
+  ID: string;
+  CREATED_AT: string;
 }

@@ -1,0 +1,45 @@
+@import '../../../../assets/style/helpers/mixins';
+@import '../../../../assets/style/base/colors';
+@import '../../../../assets/style/base/typography';
+
+h4 {
+  margin: 0;
+}
+
+.card-description {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.sumary-body-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box-card-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  i {
+    font-size: 30px;
+    color: #fff;
+  }
+}
+
+.sumary-footer-card {
+  line-height: 0;
+}
+
+.charts-sumary {
+  margin-top: 4rem;
+}
+
+.chart-wrapper {
+  margin-top: 2rem;
+}

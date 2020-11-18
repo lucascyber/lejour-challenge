@@ -11,17 +11,7 @@ export class UsersService {
 
   constructor(private _http?: HttpClient) { }
 
-  getUsers(
-    {
-      limit,
-      id,
-      date,
-    }:
-    {
-      limit?: string,
-      id?: string,
-      date?: string
-    }
+  getUsers( { limit, id, date,}: { limit?: string, id?: string, date?: string }
   ): Observable<User[]> {
     const opt: {[k: string]: any} = {};
 

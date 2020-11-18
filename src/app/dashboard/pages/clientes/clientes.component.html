@@ -1,1 +1,30 @@
-<p>clientes works!</p>
+<div class="row">
+  <div class="col-sm-12">
+    <h2 class="h2 color-grey-dark">Clientes</h2>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-sm-12 col-md-4">
+    <app-card [radius]=cardRadius.small>
+      <div class="card-wrapper__medium sumary-body-card">
+        <div class="box-card-icon bg-primary-guava">
+          <i class="icon-comercial"></i>
+        </div>
+        <div class="card-description">
+          <h4 class="text-merriweather__md--bold color-grey-base">Usuarios cadastrados</h4>
+          <span class="text-lato__lg--bold color-primary-guava">
+            {{sumaryData?.totalClients}}
+          </span>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="card-wrapper__medium sumary-footer-card">
+        <span class="text-lato__sm--bold color-grey-base">Total de usuarios cadastrados</span>
+      </div>
+    </app-card>
+  </div>
+
+</div>
