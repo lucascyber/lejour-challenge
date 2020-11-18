@@ -1,12 +1,52 @@
-<mat-drawer-container class="main-root" autosize>
-  <mat-drawer #drawer class="menu-mobile" mode="side">
-    <p>This is menu mobile</p>
+﻿<mat-drawer-container class="main-root" autosize>
+  <mat-drawer #drawer class="menu-mobile" mode="over" >
+    <div class="menu-mobile__header">
+      <img src="../../../../assets/images/logo/logo.svg" alt="" srcset="">
+    </div>
+
+    <div class="menu-mobile__wrapper">
+      <ul class="menu-list">
+        <li class="menu-list-item" routerLinkActive="active" routerLink="dashboard/home">
+          <span class="menu-list-item__icon">
+            <i class="icon-home-1"></i>
+          </span>
+          <span class="menu-list-item__text">Início</span>
+        </li>
+        <mat-divider></mat-divider>
+      </ul>
+      <ul class="menu-list items">
+        <li class="menu-list-item" routerLinkActive="active" *ngFor="let item of itemMenu;" routerLink={{item.link}}>
+          <span class="menu-list-item__icon">
+            <i class={{item.icone}}></i>
+          </span>
+          <span class="menu-list-item__text">
+            {{item.nome}}
+          </span>
+        </li>
+      </ul>
+    </div>
   </mat-drawer>
 
+
+  <div class="hide-min-phablet">
+    <mat-toolbar>
+      <div class="content">
+        <div class="row">
+
+          <div class="col-xs-8 col-sm-8 col-8 logo">
+            <img src="../../../../assets/images/logo/logo.svg" alt="" srcset="">
+          </div>
+          <div class="col-xs-2 col-sm-2 col-2">
+            <button mat-icon-button aria-label="icon-button" (click)="drawer.toggle()">
+              <mat-icon>menu</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </mat-toolbar>
+  </div>
+
   <div class="content-wapper">
-    <div class="hide-min-phablet">
-      <button type="button" class="mob-menu-button" mat-button (click)="drawer.toggle()">Mobile menu</button>
-    </div>
 
     <app-side-menu class="hide-max-phablet"></app-side-menu>
     <div class="content">
@@ -15,3 +55,5 @@
   </div>
 
 </mat-drawer-container>
+
+

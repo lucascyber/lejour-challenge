@@ -1,1 +1,85 @@
-<p>casamentos works!</p>
+<div class="row">
+  <div class="col-sm-12">
+    <h2 class="h2 color-grey-dark">Casamentos</h2>
+  </div>
+</div>
+
+<!-- CASAMENTOS POR MÊS -->
+<div class="row charts-sumary">
+  <div class="col-sm-12 col-md-6">
+    <app-card [radius]=cardRadius.small>
+      <div class="card-wrapper__medium">
+        <div class="w-100 flex-row justify-content-center">
+          <span class="text-merriweather__md--bold color-grey-base">Casamentos por mês ({{byMonthCurrentYear}})</span>
+          <button mat-icon-button [matMenuTriggerFor]="menuMeses" aria-label="Filtro">
+            <mat-icon>filter_alt</mat-icon>
+          </button>
+          <mat-menu #menuMeses>
+            <button mat-menu-item (click)="getYearValue($event, 'month')" *ngFor="let year of weddingYears">
+              {{ year }}
+            </button>
+          </mat-menu>
+        </div>
+        <div class="chart-wrapper">
+          <canvas baseChart [datasets]="byMonthChartData" [labels]="byMonthChartLabels" [options]="byMonthChartOptions"
+            [legend]="byMonthChartLegend" [chartType]="byMonthChartType" [colors]="byMonthChartColors">
+          </canvas>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <div class="col-sm-12 col-md-6">
+    <app-card [radius]=cardRadius.small>
+      <div class="card-wrapper__medium">
+        <div class="w-100 flex-row justify-content-center">
+          <span class="text-merriweather__md--bold color-grey-base">Casamentos por estilo</span>
+        </div>
+        <div class="chart-wrapper">
+          <canvas baseChart [datasets]="byStyleChartData" [labels]="byStyleChartLabels" [options]="byStyleChartOptions"
+            [legend]="byStyleChartLegend" [chartType]="byStyleChartType" [colors]="byStyleChartColors">
+          </canvas>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>
+
+<!-- CASAMENTOS POR QUANTIDADE DE CONVIDADOS -->
+<div class="row charts-sumary mt-1">
+  <div class="col-sm-12 col-md-6">
+    <app-card [radius]=cardRadius.small>
+      <div class="card-wrapper__medium">
+        <div class="w-100 flex-row justify-content-center">
+          <span class="text-merriweather__md--bold color-grey-base">Qtdade de convidados por qtdade de casamento ({{byGuestsCurrentYear}})</span>
+          <button mat-icon-button [matMenuTriggerFor]="menuConvidados" aria-label="Filtro">
+            <mat-icon>filter_alt</mat-icon>
+          </button>
+          <mat-menu #menuConvidados>
+            <button mat-menu-item (click)="getYearValue($event, 'guests')" *ngFor="let year of weddingYears">
+              {{ year }}
+            </button>
+          </mat-menu>
+        </div>
+        <div class="chart-wrapper">
+          <canvas baseChart [datasets]="byGuestChartData" [labels]="byGuestChartLabels" [options]="byGuestChartOptions"
+            [legend]="byGuestChartLegend" [chartType]="byGuestChartType" [colors]="byGuestChartColors">
+          </canvas>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <div class="col-sm-12 col-md-6">
+    <app-card [radius]=cardRadius.small>
+      <div class="card-wrapper__medium">
+        <div class="w-100 flex-row justify-content-center">
+          <span class="text-merriweather__md--bold color-grey-base">Fornecedores mais favoritados</span>
+        </div>
+        <div class="chart-wrapper">
+          <canvas baseChart [datasets]="byVendorChartData" [labels]="byVendorChartLabels" [options]="byVendorChartOptions"
+            [legend]="byVendorChartLegend" [chartType]="byVendorChartType" [colors]="byVendorChartColors">
+          </canvas>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>
