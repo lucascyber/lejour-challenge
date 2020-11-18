@@ -21,11 +21,6 @@ export class AppComponent implements OnInit {
         link: 'dashboard/agendamentos'
       },
       {
-        nome: 'Clientes',
-        icone: 'icon-clients',
-        link: 'dashboard/clientes'
-      },
-      {
         nome: 'Casamentos',
         icone: 'icon-wending-1',
         link: 'dashboard/casamentos'
